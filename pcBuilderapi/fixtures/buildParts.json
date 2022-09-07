@@ -1,0 +1,26 @@
+[
+    {
+        "model": "pcBuilderapi.buildPart",
+        "pk": 1,
+        "fields": {
+            "part": 1,
+            "build": 1
+        }
+    },
+    {
+        "model": "pcBuilderapi.buildPart",
+        "pk": 2,
+        "fields": {
+            "part": 2,
+            "build": 1
+        }
+    },
+    {
+        "model": "pcBuilderapi.buildPart",
+        "pk": 3,
+        "fields": {
+            "part": 3,
+            "build": 2
+        }
+    }
+]

@@ -1,0 +1,24 @@
+[
+    {
+        "model": "pcBuilderapi.build",
+        "pk": 1,
+        "fields": {
+            "title": "My First Build",
+            "builder": 1,
+            "img": "https://cdn.shopify.com/s/files/1/0509/3693/8675/products/PXL_20220407_135813056.PORTRAIT_1024x1024@2x.jpg?v=1649355485",
+            "price": 1000.00,
+            "rating": 4.5
+        }
+    },
+    {
+        "model": "pcBuilderapi.build",
+        "pk": 2,
+        "fields": {
+            "title": "My Second Build",
+            "builder": 1,
+            "img": "https://cdn.shopify.com/s/files/1/0509/3693/8675/products/PXL_20220407_135813056.PORTRAIT_1024x1024@2x.jpg?v=1649355485",
+            "price": 2000.00,
+            "rating": 5.0
+        }
+    }
+]

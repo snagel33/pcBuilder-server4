@@ -1,0 +1,23 @@
+[
+    {
+        "model": "pcBuilderapi.partType",
+        "pk": 1,
+        "fields": {
+            "label": "CPU"
+        }
+    },
+    {
+        "model":"pcBuilderapi.partType",
+        "pk": 2,
+        "fields": {
+            "label": "Motherboard"
+        }
+    },
+    {
+        "model":"pcBuilderapi.partType",
+        "pk": 3,
+        "fields": {
+            "label": "Memory"
+        }
+    }
+]

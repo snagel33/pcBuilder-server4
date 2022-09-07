@@ -1,0 +1,38 @@
+[
+    {
+        "model": "pcBuilderapi.part",
+        "pk": 1,
+        "fields": {
+            "partType": 1,
+            "maker": "AMD",
+            "name": "Ryzen 5 3600",
+            "img": "https://m.media-amazon.com/images/I/71WPGXQLcLL._AC_SX679_.jpg",
+            "description": "The AMD Ryzen 5 3600 is a 6-core, 12-thread processor based on the Zen 2 microarchitecture. It features 32MB of L3 cache and uses a 65W TDP. The Ryzen 5 3600 is the successor to the Ryzen 5 2600 and was released in July 2019.",
+            "price": 199.99
+        }
+    },
+    {
+        "model": "pcBuilderapi.part",
+        "pk": 2,
+        "fields": {
+            "partType": 2,
+            "maker": "ASUS",
+            "name": "ROG Strix B450-F Gaming",
+            "img": "https://m.media-amazon.com/images/I/91MWQtTH4bL._AC_SX679_.jpg",
+            "description": "ASUS ROG Strix B450-F Gaming II offers a feature-set usually found in the higher-end ROG motherboards. With robust power delivery and effective cooling, ROG StrixB450-F Gaming II is well-equipped to handle Ryzen 5000, 3rd/2nd/ 1st Gen AMD Ryzen™ CPUs. Boasting futuristic aesthetics and intuitive ROG software, ROG StrixB450-F Gaming gives you a perfect start on your dream build.",
+            "price": 219.99
+        }
+    },
+    {
+        "model": "pcBuilderapi.part",
+        "pk": 3,
+        "fields": {
+            "partType": 3,
+            "maker": "G.SKILL",
+            "name": "Trident Z Neo 16GB (2 x 8GB) DDR4-3600 CL16",
+            "img": "https://m.media-amazon.com/images/I/61N5Y36wK0L._AC_SX679_PIbundle-2,TopRight,0,0_SH20_.jpg",
+            "description": "G.SKILL Trident Z Neo 16GB (2 x 8GB) DDR4-3600 CL16 Memory",
+            "price": 109.99
+        }
+    }
+]

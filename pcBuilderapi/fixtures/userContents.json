@@ -1,0 +1,11 @@
+[
+    {
+        "model": "pcBuilderapi.userContent",
+        "pk": 1,
+        "fields": {
+            "builder": 1,
+            "title": "Test Content",
+            "content": "This is test text."
+        }
+    }
+]
