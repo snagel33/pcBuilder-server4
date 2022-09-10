@@ -3,3 +3,4 @@ from .partType import PartTypeView
 from .part import PartView
 from .build import BuildView
 from .builder import BuilderView
+from .buildPart import BuildPartView

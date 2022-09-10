@@ -6,9 +6,12 @@ from pcBuilderapi.models import PartType, partType
 
 class PartTypeView(ViewSet):
     def retrieve(self, request, pk):
-        partType = PartType.objects.get(pk=pk)
-        serializer = PartTypeSerializer(partType)
-        return Response(serializer.data)
+        try:
+            partType = PartType.objects.get(pk=pk)
+            serializer = PartTypeSerializer(partType)
+            return Response(serializer.data)
+        except PartType.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         
     def list(self, request):
         partTypes = PartType.objects.all()
@@ -19,4 +22,5 @@ class PartTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = PartType
         fields = ('id', 'label')
+        depth = 1
         
