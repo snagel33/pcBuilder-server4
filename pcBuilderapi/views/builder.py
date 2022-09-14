@@ -15,6 +15,14 @@ class BuilderView(ViewSet):
         serializer = BuilderSerializer(builders, many=True)
         return Response(serializer.data)
     
+    def update(self, request, pk):
+        builder = Builder.objects.get(pk=pk)
+        builder.userName = request.data["userName"]
+        builder.bio = request.data["bio"]
+        builder.img = request.data["img"]
+        builder.save()
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+    
 class BuilderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Builder

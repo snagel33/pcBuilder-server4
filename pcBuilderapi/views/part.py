@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from pcBuilderapi.models import Part, PartType
+from pcBuilderapi.models import Part, PartType, partType
 
 class PartView(ViewSet):
     def retrieve(self, request, pk):
@@ -31,6 +31,20 @@ class PartView(ViewSet):
         )
         serializer = PartSerializer(part)
         return Response(serializer.data)
+    
+    def update(self, request, pk):
+        part = Part.objects.get(pk=pk)
+        part.maker = request.data["maker"]
+        part.name = request.data["name"]
+        part.img = request.data["img"]
+        part.description = request.data["description"]
+        part.price = request.data["price"]
+        
+        partType = PartType.objects.get(pk=request.data["partType"])
+        part.partType = partType
+        part.save()
+        
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class PartSerializer(serializers.ModelSerializer):
     class Meta:
