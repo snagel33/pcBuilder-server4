@@ -45,6 +45,11 @@ class PartView(ViewSet):
         part.save()
         
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    def destroy(self, request, pk):
+        part = Part.objects.get(pk=pk)
+        part.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class PartSerializer(serializers.ModelSerializer):
     class Meta:

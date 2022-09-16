@@ -17,22 +17,24 @@ class BuildView(ViewSet):
         return Response(serializer.data)
     
     def create(self, request):
-        cpu=Part.objects.get(pk=request.data["cpu"])
-        motherboard=Part.objects.get(pk=request.data["motherboard"])
-        
-        
+        # cpu=request.query_params.get('cpu', None)
+        # if cpu is not None:
+        #         cpu = Part.objects.get(pk=cpu)
+            
+        # motherboard=Part.objects.get(pk=request.data["motherboard"])
         builder = Builder.objects.get(user=request.auth.user)
-        parts = Part.objects.filter(id__in=request.data["parts"])
+        parts = request.query_params.get('parts', None)
         build = Build.objects.create(
             title=request.data["title"],
             builder=builder,
             img=request.data["img"],
             price=request.data["price"],
             rating=request.data["rating"],
-            cpu=cpu,
-            motherboard=motherboard
+            parts=parts
+            # cpu=cpu,
+            # motherboard=motherboard
         )
-        serializer = BuildSerializer(build)
+        serializer = BuildSerializer(build, many=True)
         return Response(serializer.data)
     
     def update(self, request, pk):
