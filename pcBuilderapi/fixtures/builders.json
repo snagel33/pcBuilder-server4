@@ -6,13 +6,5 @@
             "user": 1,
             "bio": "It's Steve."
         }
-    },
-    {
-        "model": "pcBuilderapi.builder",
-        "pk": 2,
-        "fields": {
-            "user": 2,
-            "bio": "It's not Steve."
-        }
     }
 ]

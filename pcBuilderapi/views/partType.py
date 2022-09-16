@@ -22,5 +22,5 @@ class PartTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = PartType
         fields = ('id', 'label')
-        depth = 1
+        depth = 3
         

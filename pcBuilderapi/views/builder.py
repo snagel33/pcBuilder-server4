@@ -27,3 +27,4 @@ class BuilderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Builder
         fields = ('id', 'user', 'userName', 'bio', 'img')
+        depth = 3

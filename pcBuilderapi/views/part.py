@@ -49,5 +49,5 @@ class PartView(ViewSet):
 class PartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Part
-        fields = ('id', 'maker', 'name', 'img', 'description', 'price', 'partType_id')
-        depth = 1
+        fields = ('id', 'maker', 'name', 'img', 'description', 'price', 'partType_id', 'BuildParts')
+        depth = 3

@@ -19,4 +19,4 @@ class BuildPartSerializer(serializers.ModelSerializer):
     class Meta:
         model = BuildPart
         fields = ('id', 'part', 'build')
-        depth = 1
+        depth = 3

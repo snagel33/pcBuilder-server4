@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from pcBuilderapi.models import Build, Builder, builder
+from pcBuilderapi.models import Build, Builder, builder, Part, part
 from django.core.exceptions import ValidationError
 
 class BuildView(ViewSet):
@@ -17,14 +17,20 @@ class BuildView(ViewSet):
         return Response(serializer.data)
     
     def create(self, request):
+        cpu=Part.objects.get(pk=request.data["cpu"])
+        motherboard=Part.objects.get(pk=request.data["motherboard"])
+        
+        
         builder = Builder.objects.get(user=request.auth.user)
-                
+        parts = Part.objects.filter(id__in=request.data["parts"])
         build = Build.objects.create(
             title=request.data["title"],
             builder=builder,
             img=request.data["img"],
             price=request.data["price"],
-            rating=request.data["rating"]
+            rating=request.data["rating"],
+            cpu=cpu,
+            motherboard=motherboard
         )
         serializer = BuildSerializer(build)
         return Response(serializer.data)
@@ -48,7 +54,8 @@ class BuildView(ViewSet):
 class BuildSerializer(serializers.ModelSerializer):
     class Meta:
         model = Build
-        fields = ('id', 'title', 'img', 'price', 'rating')
+        fields = ('id', 'title', 'img', 'price', 'rating', 'parts', 'builder_id')
+        depth = 3
         
 class CreateBuildSerializer(serializers.ModelSerializer):
     class Meta:
