@@ -6,7 +6,7 @@ from pcBuilderapi.models import Part, PartType, partType
 
 class PartView(ViewSet):
     def retrieve(self, request, pk):
-        part = Part.objects.get(pk=pk)
+        part = Part.objects.get(pk=pk)        
         serializer = PartSerializer(part)
         return Response(serializer.data)
     

@@ -17,9 +17,10 @@ class BuilderView(ViewSet):
     
     def update(self, request, pk):
         builder = Builder.objects.get(pk=pk)
-        builder.userName = request.data["userName"]
+        # builder.userName = request.data["userName"]
         builder.bio = request.data["bio"]
         builder.img = request.data["img"]
+        builder.userName = request.data["userName"]
         builder.save()
         return Response({}, status=status.HTTP_204_NO_CONTENT)
     
