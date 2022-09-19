@@ -16,16 +16,27 @@ class BuilderView(ViewSet):
         return Response(serializer.data)
     
     def update(self, request, pk):
-        builder = Builder.objects.get(pk=pk)
+        # builder = Builder.objects.get(pk=pk)
         # builder.userName = request.data["userName"]
-        builder.bio = request.data["bio"]
-        builder.img = request.data["img"]
-        builder.userName = request.data["userName"]
-        builder.save()
-        return Response({}, status=status.HTTP_204_NO_CONTENT)
+        # builder.bio = request.data["bio"]
+        # builder.img = request.data["img"]
+        # builder.save()
+        # return Response({}, status=status.HTTP_204_NO_CONTENT)
+    
+        builder = Builder.objects.get(pk=pk)
+        serializer = CreateBuilderSerializer(builder, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
     
 class BuilderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Builder
         fields = ('id', 'user', 'userName', 'bio', 'img')
+        depth = 3
+        
+class CreateBuilderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Builder
+        fields = ('id', 'user', 'bio', 'img')
         depth = 3
