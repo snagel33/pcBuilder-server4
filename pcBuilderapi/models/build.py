@@ -9,4 +9,4 @@ class Build(models.Model):
     img = models.CharField(max_length=500)
     price = models.IntegerField()
     rating = models.IntegerField()
-    parts = models.ManyToManyField(Part, related_name="BuildParts", null=True, blank=True)
+    parts = models.ManyToManyField(Part, related_name="BuildParts", blank=True)
